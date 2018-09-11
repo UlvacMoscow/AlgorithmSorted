@@ -5,16 +5,16 @@
 
 
 def longest_increasing_subsequence(A):
-    F = [0] * (len(A))
-    for i in range (1, len(A)):
+    F = [0] * (len(A) + 1)
+    for i in range (1, len(A) + 1):
         m = 0
         for j in range(0, i):
-            if A[i] > A[j] and F[j] > m:
+            if A[i - 1] > A[j - 1] and F[j] > m:
                 m = F[j]
             F[i] = m + 1
     print(A)
     print(F)
-    return F[-1]
+    return F[len(A)]
 
 
 A = [1, 2, 3, 4, 3, 5]
